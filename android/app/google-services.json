@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "132333038544",
+    "project_id": "identicare-c3f80",
+    "storage_bucket": "identicare-c3f80.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:132333038544:android:f45da256114af182a3e7d5",
+        "android_client_info": {
+          "package_name": "com.example.identicare"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDX4Gj9gHy9K6tF2gEmmAj17FTwzPmxw-4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
