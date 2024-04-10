@@ -5,13 +5,23 @@ import 'package:identicare/components/my_list_tile.dart';
 import 'package:identicare/components/my_post_button.dart';
 import 'package:identicare/components/my_textfield.dart';
 import 'package:identicare/database/firestore.dart';
+import 'package:app_bar_with_search_switch/app_bar_with_search_switch.dart';
 
-class HomePage extends StatelessWidget {
+
+class HomePage extends StatefulWidget {
   HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   //  accesing the fire store
   final FirestoreDatabase database = FirestoreDatabase();
 
   final TextEditingController newPostController = TextEditingController();
+
+  final TextEditingController searchController = TextEditingController();
 
   void postMessage() {
     if (newPostController.text.isNotEmpty) {
@@ -21,18 +31,31 @@ class HomePage extends StatelessWidget {
     newPostController.clear();
   }
 
+  var searchName = "";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Home"),
-        backgroundColor: Colors.transparent,
-        foregroundColor: Theme.of(context).colorScheme.inversePrimary,
-        elevation: 0,
-      ),
-      drawer: const MyDrawer(),
+      appBar: AppBarWithSearchSwitch(onChanged: (value) {
+        setState(() {
+          searchName = value;
+        });
+      }, appBarBuilder: (context) {
+        return AppBar(
+          title: const Text(
+            "IDENTICARE",
+            textAlign: TextAlign.center,
+          ),
+          backgroundColor: Colors.transparent,
+          foregroundColor: Theme.of(context).colorScheme.inversePrimary,
+          elevation: 0,
+          actions: const [AppBarSearchButton()],
+        );
+      }),
+      drawer: MyDrawer(),
       body: Column(
         children: [
+          
           // place for the user to type a post
           Padding(
             padding: const EdgeInsets.all(25),
@@ -43,7 +66,9 @@ class HomePage extends StatelessWidget {
                       hintText: "Your thoughts?",
                       labelText: "post",
                       obscureText: false,
-                      controller: newPostController),
+                      controller: newPostController,
+                      prefixIcon: null,
+                      suffixIcon: null),
                 ),
                 MyPostButton(
                   onTap: postMessage,
@@ -84,11 +109,14 @@ class HomePage extends StatelessWidget {
 
                   // retrieve data from each post
                   String message = post['PostMessage'];
-                  String userName = post['userName'];
+                  String username = post['userName'];
                   Timestamp timestamp = post['TimeStamp'];
 
                   // return the data as a list tile
-                  return MyListTile(title: userName, subTitle: message);
+                  return MyListTile(
+                    title: username,
+                    subTitle: message,
+                  );
                 },
               ));
             },

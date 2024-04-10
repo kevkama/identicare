@@ -18,14 +18,14 @@ class FirestoreDatabase {
 // first method will allow user to post a msg
   Future<void> addPost(String message) {
     return posts.add({
-      'userName': user!.email,
+      'userName': user!.displayName,
       'PostMessage': message,
       'TimeStamp': Timestamp.now(),
     });
   }
 
 // second will cater for reading the posts from the database
-  Stream<QuerySnapshot> getPostsStream() {
+  Stream<QuerySnapshot> getPostsStream(snapshots) {
     final postsStream = FirebaseFirestore.instance
         .collection('Posts')
         .orderBy('TimeStamp', descending: true)

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class MyTextField extends StatelessWidget {
@@ -6,6 +5,8 @@ class MyTextField extends StatelessWidget {
   final String labelText;
   final bool obscureText;
   final TextEditingController controller;
+  final Widget? prefixIcon;
+  final Widget? suffixIcon;
 
   const MyTextField({
     super.key,
@@ -13,11 +14,13 @@ class MyTextField extends StatelessWidget {
     required this.labelText,
     required this.obscureText,
     required this.controller,
+    required this.prefixIcon,
+    required this.suffixIcon
   });
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
       obscureText: obscureText,
       controller: controller,
       decoration: InputDecoration(
@@ -26,8 +29,9 @@ class MyTextField extends StatelessWidget {
         ),
         hintText: hintText,
         labelText: labelText,
+        prefixIcon: prefixIcon,
+        suffixIcon: suffixIcon
       ),
-
     );
   }
 }
