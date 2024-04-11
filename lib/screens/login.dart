@@ -56,7 +56,6 @@ class _LoginState extends State<Login> {
       displayMessageToUser(e.code, context);
     }
   }
-  
 
   @override
   Widget build(BuildContext context) {
@@ -128,10 +127,15 @@ class _LoginState extends State<Login> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      Text(
-                        "Forgot password?",
-                        style: TextStyle(
-                          color: Theme.of(context).colorScheme.secondary,
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.pushNamed(context, '/forgot_password');
+                        },
+                        child: const Text(
+                          "Forgot password?",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
                     ],

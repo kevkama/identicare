@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:identicare/auth/auth.dart';
 import 'package:identicare/auth/login_or_signup.dart';
 import 'package:identicare/firebase_options.dart';
+import 'package:identicare/screens/forgot_password.dart';
 import 'package:identicare/screens/homepage.dart';
 import 'package:identicare/screens/profile.dart';
 import 'package:identicare/screens/users.dart';
@@ -26,10 +27,11 @@ class MyApp extends StatelessWidget {
       theme: lightMode,
       darkTheme: darkMode,
       routes: {
-        '/login_or_signup':(context) => const LoginOreSignUp(),
-        '/homepage':(context) =>  HomePage(),
-        '/profile':(context) => Profile(),
-        '/users':(context) => const Users(),
+        '/login_or_signup': (context) => const LoginOreSignUp(),
+        '/homepage': (context) => const HomePage(),
+        '/profile': (context) => Profile(),
+        '/users': (context) => const Users(),
+        '/forgot_password': (context) => const ForgotPasswordPage(),
       },
     );
   }

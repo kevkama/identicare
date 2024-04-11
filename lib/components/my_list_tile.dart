@@ -6,7 +6,7 @@ class MyListTile extends StatelessWidget {
   const MyListTile({
     super.key,
     required this.title,
-    required this.subTitle, 
+    required this.subTitle,
   });
 
   @override
