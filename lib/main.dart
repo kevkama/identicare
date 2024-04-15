@@ -5,6 +5,8 @@ import 'package:identicare/auth/login_or_signup.dart';
 import 'package:identicare/firebase_options.dart';
 import 'package:identicare/screens/forgot_password.dart';
 import 'package:identicare/screens/homepage.dart';
+import 'package:identicare/screens/my_bottom_nav.dart';
+import 'package:identicare/screens/postpage.dart';
 import 'package:identicare/screens/profile.dart';
 import 'package:identicare/screens/users.dart';
 import 'package:identicare/theme/dark_mode.dart';
@@ -32,6 +34,8 @@ class MyApp extends StatelessWidget {
         '/profile': (context) => Profile(),
         '/users': (context) => const Users(),
         '/forgot_password': (context) => const ForgotPasswordPage(),
+        '/postpage':(context) => const PostPage(),
+        '/bottomnav':(context) => const MyBottomNav(),
       },
     );
   }

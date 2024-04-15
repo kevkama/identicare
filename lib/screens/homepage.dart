@@ -1,12 +1,11 @@
 import 'package:app_bar_with_search_switch/app_bar_with_search_switch.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:identicare/components/my_drawer.dart';
-import 'package:identicare/components/my_post_button.dart';
-import 'package:identicare/components/my_textfield.dart';
 import 'package:identicare/components/post_wall.dart';
+import 'package:identicare/screens/postpage.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -15,27 +14,10 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
-  final currentUser = FirebaseAuth.instance.currentUser;
-  final TextEditingController newPostController = TextEditingController();
-
-  // post message method
-  void postMessage() {
-    // only post when textfield has data
-    if (newPostController.text.isNotEmpty) {
-      // store the new data
-      FirebaseFirestore.instance.collection("Posts").add({
-        "userEmail": currentUser!.email,
-        "PostMessage": newPostController.text,
-        "TimeStamp": Timestamp.now(),
-      });
-    }
-    newPostController.clear();
-  }
-
+class _HomePageState extends State<HomePage> { 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold(         
       appBar: AppBarWithSearchSwitch(appBarBuilder: (context) {
         return AppBar(
           title: const Row(
@@ -91,23 +73,7 @@ class _HomePageState extends State<HomePage> {
                       },
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(25.0),
-                    child: Row(
-                      children: [
-                        Expanded(
-                          child: MyTextField(
-                              hintText: "Share your insights",
-                              labelText: "Post",
-                              obscureText: false,
-                              controller: newPostController,
-                              prefixIcon: null,
-                              suffixIcon: null),
-                        ),
-                        MyPostButton(onTap: postMessage),
-                      ],
-                    ),
-                  )
+                  
                 ],
               ),
             ),

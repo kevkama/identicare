@@ -30,13 +30,14 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
     } on FirebaseAuthException catch (e) {
       displayMessageToUser(e.code, context);
     }
+    emailController.clear();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        forceMaterialTransparency:true,
+        forceMaterialTransparency: true,
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,

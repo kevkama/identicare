@@ -161,8 +161,8 @@ class _SignUpState extends State<SignUp> {
                       onTap: togglePassword,
                       child: Icon(
                         isHidden
-                        ?Icons.visibility
-                        :Icons.visibility_off)
+                        ?Icons.visibility_off
+                        :Icons.visibility)
                       ),
                   ),
 
@@ -182,8 +182,8 @@ class _SignUpState extends State<SignUp> {
                       onTap: togglePassword,
                       child: Icon(
                         isHidden
-                        ?Icons.visibility
-                        :Icons.visibility_off)
+                        ?Icons.visibility_off
+                        :Icons.visibility)
                       ),
                   ),
 

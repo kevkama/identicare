@@ -140,6 +140,67 @@ class MyDrawer extends StatelessWidget {
                   },
                 ),
               ),
+
+              const SizedBox(
+                height: 20,
+              ),
+
+              // Communities tile
+              Padding(
+                padding: const EdgeInsets.only(left: 25.0),
+                child: ListTile(
+                  leading: const Icon(Icons.group),
+                  title: const Text("C O M M U N I T I E S"),
+                  onTap: () {
+                    Navigator.pop(context);
+
+                    // navigate to users
+                    Navigator.pushNamed(context, '/users');
+                  },
+                ),
+              ),
+
+              const SizedBox(
+                height: 20,
+              ),
+
+              // Communities tile
+              Padding(
+                padding: const EdgeInsets.only(left: 25.0),
+                child: ListTile(
+                  leading: const Icon(Icons.group),
+                  title: const Text("EVENTS &  CHARITIES"),
+                  onTap: () {
+                    Navigator.pop(context);
+
+                    // navigate to users
+                    Navigator.pushNamed(context, '/users');
+                  },
+                ),
+              ),
+
+              const SizedBox(
+                height: 20,
+              ),
+
+              // Communities tile
+              Padding(
+                padding: const EdgeInsets.only(left: 25.0),
+                child: ListTile(
+                  leading: const Icon(Icons.group),
+                  title: const Text("TELEHEALTH"),
+                  onTap: () {
+                    Navigator.pop(context);
+
+                    // navigate to users
+                    Navigator.pushNamed(context, '/users');
+                  },
+                ),
+              ),
+
+              const SizedBox(
+                height: 20,
+              ),
             ],
           ),
 
